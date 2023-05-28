@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package school-theme
+ * @package School_Theme
  */
 
 /**

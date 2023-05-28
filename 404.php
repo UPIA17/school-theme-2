@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package school-theme
+ * @package School_Theme
  */
 
 get_header();

@@ -1,8 +1,8 @@
 <?php
 /**
- * school-theme Theme Customizer
+ * School Theme Theme Customizer
  *
- * @package school-theme
+ * @package School_Theme
  */
 
 /**

@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package school-theme
+ * @package School_Theme
  */
 
 if ( ! function_exists( 'school_theme_posted_on' ) ) :
