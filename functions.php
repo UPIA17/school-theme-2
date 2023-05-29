@@ -8,6 +8,8 @@
  * @package School_Theme
  */
 
+use function DeliciousBrains\WPMDB\Container\DI\add;
+
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
 	define('_S_VERSION', '1.0.0');
@@ -192,8 +194,6 @@ if (defined('JETPACK__VERSION')) {
 
 //On the News page show the excerpts of the posts instead of the full content and display the sidebar before the footer instead of next to the content. 
 
-//Setup Animate on Scroll so each blog post animates into the viewport when scrolling. Include the Animate on Scroll CSS and JS files in your theme instead of using the CDN links. Only enqueue the files for the Post Type of ‘post’. 
-
 
 function school_theme_excerpt_length($length)
 {
@@ -209,3 +209,20 @@ function school_theme_excerpt_more($more)
 	return $more;
 }
 add_filter('excerpt_more', 'school_theme_excerpt_more');
+
+
+
+// Setup Animate on Scroll so each blog post animates into the viewport when scrolling. Include the Animate on Scroll CSS and JS files in your theme instead of using the CDN links. Only enqueue the files for the Post Type of ‘post’. 
+
+function enqeue_aos_files()
+{
+	if (is_singular('post')) {
+		// enqueue animate on scroll css
+		wp_enqueue_style('aos', get_template_directory_uri() . '/animate-on-scroll/aos.css', array(), '1.0.0', 'all');
+
+		// enqueue animate on scroll js
+		wp_enqueue_script('aos', get_template_directory_uri() . '/animate-on-scroll/aos.js', array('jquery'),  '1.0.0', true);
+	}
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_aos_files');
