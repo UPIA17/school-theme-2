@@ -44,11 +44,14 @@
     "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
   },
   "dependencies": {
+    "acorn": "^8.8.2",
     "aos": "^2.3.4",
     "gulp": "^4.0.2",
     "gulp-dart-sass": "^1.1.0",
     "gulp-postcss": "^9.0.1",
     "gulp-sourcemaps": "^3.0.0",
-    "stylelint": "^15.6.2"
+    "prettier": "^2.8.8",
+    "stylelint": "^13.13.1",
+    "typescript": "^5.0.4"
   }
 }
