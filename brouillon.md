@@ -13,15 +13,15 @@ const scss = root + 'sass/';
 // CSS via Sass and Autoprefixer
 task( 'css', function() {
 	return src( scss + 'style.scss' )
-		.pipe( sourcemaps.init() )
+		.pipe( init() )
 		.pipe( sass( {
 			outputStyle: 'expanded',
 			precision: 10,
 			indentType: 'tab',
 			indentWidth: '1',
-		} ).on( 'error', sass.logError ) )
+		} ).on( 'error', logError ) )
 		.pipe( postcss( [ autoprefixer() ] ) )
-		.pipe( sourcemaps.write( './sass' ) )
+		.pipe( write( './sass' ) )
 		.pipe( dest( root ) );
 } );
 
@@ -32,3 +32,5 @@ task( 'watch', function() {
 
 // Default task that runs when running 'npx gulp'
 task( 'default', series( 'css', 'watch' ) );
+
+
