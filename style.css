@@ -231,7 +231,6 @@ button,
 	-webkit-appearance: button;
 }
 
-
 /**
  * Remove the inner border and padding in Firefox.
  */
@@ -915,5 +914,17 @@ textarea {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 1.5em;
+}
+
+.alignwide {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-left: auto;
+}
+
+.alignfull {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 /*# sourceMappingURL=sass/style.css.map */
