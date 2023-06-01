@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The template for displaying all pages
+ * The template for displaying Schedule PAGE
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -27,6 +27,31 @@ get_header();
 		// If comments are open or we have at least one comment, load up the comment template.
 		if (comments_open() || get_comments_number()) :
 			comments_template();
+		endif;
+
+
+
+
+		// course schedule
+		if (have_rows('course_schedule')) :
+			echo '<p>Weekly Course Schedule</p>';
+
+			echo '<table>';
+
+			echo '<thead>';
+
+			echo '<tr> <th>Date</th> <th>Course</th> <th>Instructor</th> </tr>';
+
+			echo '</thead>';
+
+			echo '<tbody>';
+
+			while (have_rows('course_schedule')) : the_row();
+				echo '<tr> <td>' . date('F j, Y', strtotime(get_sub_field('date'))) . '</td> <td>' . get_sub_field('course') . '</td> <td>' . get_sub_field('instructor') . '</td> </tr>';
+			endwhile;
+
+			echo '</tbody>';
+			echo '</table>';
 		endif;
 
 	endwhile; // End of the loop.
