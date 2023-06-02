@@ -18,6 +18,7 @@
 
 
 	<!-- Add a logo to the footer using an ACF Image field and have the logo link to the homepage. -->
+	<!-- CREDIT: https://www.advancedcustomfields.com/resources/image/#display-image-id -->
 	<section class="footer-logo">
 		<?php
 		$image = get_field('footer_logo');
