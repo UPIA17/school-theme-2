@@ -15,6 +15,42 @@
 
 
 <footer id="colophon" class="site-footer">
+
+
+
+
+	<!-- Add a logo to the footer using an ACF Image field and have the logo link to the homepage. -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- FOOTER NAVIGATION MENU -->
+	<nav id="footer-navigation-menu" class="footer-navigation-menu">
+		<?php
+		wp_nav_menu(
+			array(
+				'theme_location' => 'menu-footer-right',
+				'menu_id'        => 'footer-right-menu',
+			)
+		);
+		?>
+	</nav>
+
+
 	<div class="site-info">
 		<a href="<?php echo esc_url(__('https://wordpress.org/', 'school-theme')); ?>">
 			<?php

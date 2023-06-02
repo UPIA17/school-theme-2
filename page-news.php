@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: News Template
+ * Template Name: News Page
  *
  * The template for displaying the News page.
  *

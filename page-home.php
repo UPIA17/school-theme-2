@@ -135,6 +135,60 @@ get_header();
 
 
 
+	<div class="left-and-right">
+		<section class="left-section">
+
+			<?php
+
+			if (function_exists('get_field')) {
+
+				if (get_field('right_heading')) {
+
+					echo '<h2>';
+					the_field('right_heading');
+					echo '</h2>';
+				}
+
+				if (get_field('right_content')) {
+
+					echo '<p>';
+					the_field('right_content');
+					echo '</p>';
+				}
+			}
+
+			?>
+		</section>
+
+		<section class="right-section">
+
+			<?php
+
+			if (function_exists('get_field')) {
+
+				if (get_field('left_heading')) {
+
+					echo '<h2>';
+					the_field('left_heading');
+					echo '</h2>';
+				}
+
+				if (get_field('left_content')) {
+
+					echo '<p>';
+					the_field('left_content');
+					echo '</p>';
+				}
+			}
+
+			?>
+
+		</section>
+
+	</div>
+
+
+
 
 
 	<!-- RECENT BLOGS -->
