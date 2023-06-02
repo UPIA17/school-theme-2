@@ -139,6 +139,9 @@ function school_theme_widgets_init()
 }
 add_action('widgets_init', 'school_theme_widgets_init');
 
+
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -152,28 +155,25 @@ function school_theme_scripts()
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
+
+
+
+	// animate on scroll
+	if (is_home()) {
+
+		//enqueue aos css
+		wp_enqueue_style('aos-css', get_template_directory_uri() . '/animate-on-scroll/aos.css', array(), '2.3.1', 'all');
+
+		// enqueue aos js
+		wp_enqueue_script('aos-js', get_template_directory_uri() . '/animate-on-scroll/aos.js', array(), '2.3.1', true);
+
+		// initialize settings
+		wp_enqueue_script('aos-settings', get_template_directory_uri() . '/animate-on-scroll/aos-settings.js', array('aos-js'), '2.3.1', true);
+	}
 }
 add_action('wp_enqueue_scripts', 'school_theme_scripts');
 
 
-
-
-
-
-
-// animate on scroll
-function enqueue_animate_on_scroll()
-{
-	// Check if the current post type is 'post'
-	if (is_singular('post') && is_page_template('index.php')) {
-		// Enqueue the aos.css from the theme directory
-		wp_enqueue_style('animate-on-scroll', get_template_directory_uri() . '/animate-on-scroll/aos.css', array(), '2.3.1', 'all');
-
-		// Enqueue the aos.js from the theme directory
-		wp_enqueue_script('animate-on-scroll', get_template_directory_uri() . '/animate-on-scroll/aos.js', array('jquery'), '2.3.1', true);
-	}
-}
-add_action('wp_enqueue_scripts', 'enqueue_animate_on_scroll');
 
 
 

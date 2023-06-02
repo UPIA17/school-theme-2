@@ -1,31 +1,36 @@
-FAUX TEST
-<section class="footer-logo">
-  <?php
-  if (function_exists('get_field')) {
-    if (get_field('footer_logo')) {
-      echo '<a>';
-      get_template_part('iamges/wicon');
-      the_field('footer_logo');
-      echo '</a>';
-    }
-  }
-  ?>
-</section>
+/**
+ * Enqueue scripts and styles.
+ */
+function school_theme_scripts()
+{
+	wp_enqueue_style('school-theme-style', get_stylesheet_uri(), array(), _S_VERSION);
+	wp_style_add_data('school-theme-style', 'rtl', 'replace');
+
+	wp_enqueue_script('school-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
+	}
+
+	// animate on scroll
+	if (is_singular('post')) {
+
+		//enqueue aos css
+		wp_enqueue_style('aos-css', get_template_directory_uri() . '/animate-on-scroll/aos.css', array(), '2.3.1', 'all');
+
+		// enqueue aos js
+		wp_enqueue_script('aos-js', get_template_directory_uri() . '/animate-on-scroll/aos.js', array('jquery'), '2.3.1', true);
+
+		// initialize settings
+		wp_enqueue_script('aos-settings', get_template_directory_uri() . '/animate-on-scroll/aos-settings.js', array('aos-js'), '2.3.1', true);
+	}
+}
+add_action('wp_enqueue_scripts', 'school_theme_scripts');
 
 
 
 
-	<!-- FOOTER LOGO -->
 
-	<div class="footer-logo">
-		<a href="<?php echo esc_url(home_url('/')); ?>">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/wicon2.svg" alt="Wordpress Logo" width="100" height="100">
-		</a>
-	</div>
-
-
-
-	<!-- Add a logo to the footer using WordPress’ Custom Logo feature and have the logo link to the homepage. -->
 
 
 
@@ -47,6 +52,13 @@ FAUX TEST
 // 	}
 // }
 // add_filter('use_block_editor_for_post', 'school_theme_post_filter', 10, 2);
+
+
+
+
+
+
+
 
 
 

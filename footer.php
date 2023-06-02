@@ -31,21 +31,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<!-- FOOTER NAVIGATION MENU -->
 	<nav id="footer-navigation-menu" class="footer-navigation-menu">
 		<?php
