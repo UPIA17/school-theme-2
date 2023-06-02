@@ -9,7 +9,7 @@
  */
 
 ?>
-
+<!-- Setup Animate on Scroll so each blog post animates into the viewport when scrolling. Include the Animate on Scroll CSS and JS files in your theme instead of using the CDN links. Only enqueue the files for the Post Type of ‘post’. data-aos="flip-left"  -->
 <article data-aos="flip-left" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
