@@ -17,9 +17,16 @@
 <footer id="colophon" class="site-footer">
 
 
-
-
 	<!-- Add a logo to the footer using an ACF Image field and have the logo link to the homepage. -->
+	<section class="footer-logo">
+		<?php
+		$image = get_field('footer_logo');
+		$size = 'full'; // (thumbnail, medium, large, full or custom size)
+		if ($image) {
+			echo wp_get_attachment_image($image, $size);
+		}
+		?>
+	</section>
 
 
 

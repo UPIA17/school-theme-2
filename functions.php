@@ -155,6 +155,49 @@ function school_theme_scripts()
 }
 add_action('wp_enqueue_scripts', 'school_theme_scripts');
 
+
+
+
+
+
+
+// animate on scroll
+function enqueue_animate_on_scroll()
+{
+	// Check if the current post type is 'post'
+	if (is_singular('post') && is_page_template('index.php')) {
+		// Enqueue the aos.css from the theme directory
+		wp_enqueue_style('animate-on-scroll', get_template_directory_uri() . '/animate-on-scroll/aos.css', array(), '2.3.1', 'all');
+
+		// Enqueue the aos.js from the theme directory
+		wp_enqueue_script('animate-on-scroll', get_template_directory_uri() . '/animate-on-scroll/aos.js', array('jquery'), '2.3.1', true);
+	}
+}
+add_action('wp_enqueue_scripts', 'enqueue_animate_on_scroll');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Implement the Custom Header feature.
  */
@@ -218,41 +261,3 @@ function school_theme_excerpt_more($more)
 	return $more;
 }
 add_filter('excerpt_more', 'school_theme_excerpt_more');
-
-
-
-
-
-// animate on scroll
-function enqueue_animate_on_scroll()
-{
-	// Check if the current post type is 'post'
-	if (is_singular('post') && is_page_template('index.php')) {
-		// Enqueue the aos.css from the theme directory
-		wp_enqueue_style('animate-on-scroll', get_template_directory_uri() . '/animate-on-scroll/aos.css', array(), '2.3.1', 'all');
-
-		// Enqueue the aos.js from the theme directory
-		wp_enqueue_script('animate-on-scroll', get_template_directory_uri() . '/animate-on-scroll/aos.js', array('jquery'), '2.3.1', true);
-	}
-}
-add_action('wp_enqueue_scripts', 'enqueue_animate_on_scroll');
-
-
-
-
-
-
-
-// remove the block editor from any pages in the array below
-function school_theme_post_filter($use_block_editor, $post)
-{
-
-	$page_ids = array(45); // Remove the block Editor from the Home page id = 45.
-	if (in_array($post->ID, $page_ids)) {
-		return false;
-	} else {
-
-		return $use_block_editor;
-	}
-}
-add_filter('use_block_editor_for_post', 'school_theme_post_filter', 10, 2);

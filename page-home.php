@@ -22,7 +22,7 @@ get_header();
 	while (have_posts()) :
 		the_post();
 
-	// get_template_part('template-parts/content', 'page');
+		get_template_part('template-parts/content', 'page');
 
 	// If comments are open or we have at least one comment, load up the comment template.
 	// if (comments_open() || get_comments_number()) :
@@ -33,168 +33,9 @@ get_header();
 	?>
 
 
-	<h1> <?php the_title(); ?> </h1>
-
-	<section class="home-intro">
-
-		<?php
-
-		if (function_exists('get_field')) {
-
-			if (get_field('home_intro')) {
-
-				echo '<p>';
-				the_field('home_intro');
-				echo '</p>';
-			}
-
-			$image = get_field('intro_poster');
-			if ($image) {
-				echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
-			}
-		}
-
-		?>
-	</section>
-
-
-	<div class="container-sections-left-right">
-		<section class="home-left">
-
-			<?php
-
-			if (function_exists('get_field')) {
-
-				if (get_field('left_section_heading')) {
-
-					echo '<h2>';
-					the_field('left_section_heading');
-					echo '</h2>';
-				}
-
-				if (get_field('left_section_content')) {
-
-					echo '<p>';
-					the_field('left_section_content');
-					echo '</p>';
-				}
-			}
-
-			?>
-		</section>
-
-		<section class="home-right">
-
-			<?php
-
-			if (function_exists('get_field')) {
-
-				if (get_field('right_section_heading')) {
-
-					echo '<h2>';
-					the_field('right_section_heading');
-					echo '</h2>';
-				}
-
-				if (get_field('right_section_content')) {
-
-					echo '<p>';
-					the_field('right_section_content');
-					echo '</p>';
-				}
-			}
-
-			?>
-
-		</section>
-
-	</div>
-
-
-	<section class="section-second-poster">
-
-		<?php
-
-		if (function_exists('get_field')) {
-
-			$image_two = get_field('second_poster');
-			if ($image_two) {
-				echo '<img src="' . esc_url($image_two['url']) . '" alt="' . esc_attr($image_two['alt']) . '">';
-			}
-
-			if (get_field('second_poster_paragraph')) {
-
-				echo '<p>';
-				the_field('second_poster_paragraph');
-				echo '</p>';
-			}
-		}
-
-		?>
-	</section>
-
-
-
-	<div class="left-and-right">
-		<section class="left-section">
-
-			<?php
-
-			if (function_exists('get_field')) {
-
-				if (get_field('right_heading')) {
-
-					echo '<h2>';
-					the_field('right_heading');
-					echo '</h2>';
-				}
-
-				if (get_field('right_content')) {
-
-					echo '<p>';
-					the_field('right_content');
-					echo '</p>';
-				}
-			}
-
-			?>
-		</section>
-
-		<section class="right-section">
-
-			<?php
-
-			if (function_exists('get_field')) {
-
-				if (get_field('left_heading')) {
-
-					echo '<h2>';
-					the_field('left_heading');
-					echo '</h2>';
-				}
-
-				if (get_field('left_content')) {
-
-					echo '<p>';
-					the_field('left_content');
-					echo '</p>';
-				}
-			}
-
-			?>
-
-		</section>
-
-	</div>
-
-
-
-
 
 	<!-- RECENT BLOGS -->
 	<section class="recent-blog-posts">
-
-
 		<?php
 		$args  = array(
 			'post_type'      => 'post',
@@ -218,11 +59,6 @@ get_header();
 				<p><a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">See All News</a></p>
 			</section>
 		<?php endif; ?>
-
-
-
-
-
 	</section>
 
 
