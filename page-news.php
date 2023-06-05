@@ -1,68 +1,43 @@
 <?php
-
-/**
- * Template Name: News Page
- *
- * The template for displaying the News page.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package School_Theme
- */
+/*
+Template Name: News Template
+*/
 
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<div id="primary" class="content-area">
+    <main id="main" class="site-main">
+        <header class="page-header">
+            <h1 class="page-title"><?php the_title(); ?></h1>
+        </header>
 
-	<?php
-	while (have_posts()) :
-		the_post();
+        <div class="posts-list">
+            <?php
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 3,
+            );
+            $query = new WP_Query($args);
 
-		get_template_part('template-parts/content', 'page');
+            if ($query->have_posts()) :
+                while ($query->have_posts()) :
+                    $query->the_post();
+                    ?>
+                    <article class="post animate__animated animate__fadeInUp">
+                        <h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <div class="post-excerpt"><?php the_excerpt(); ?></div>
+                    </article>
+                    <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+                echo '<p>No posts found.</p>';
+            endif;
+            ?>
+        </div>
+    </main>
+</div>
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		if (comments_open() || get_comments_number()) :
-			comments_template();
-		endif;
-
-	endwhile; // End of the loop.
-	?>
-
-	<!-- RECENT BLOGS -->
-	<section class="recent-blog-posts">
-		<h2><?php esc_html_e('Recent Blog Posts', 'school_theme'); ?></h2>
-		<div class="container-recent-blog-posts">
-			<?php
-			$args = array(
-				'post_type' => 'post',
-				'posts_per_page' => 4
-			);
-
-			$blog_query = new WP_Query($args);
-			if ($blog_query->have_posts()) {
-				while ($blog_query->have_posts()) {
-					$blog_query->the_post();
-			?>
-					<article class="aos-item" data-aos="fade-up">
-						<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail('portrait-blog-crop'); ?>
-							<h3><?php the_title(); ?></h3>
-							<p class="publication-date"><?php echo get_the_date(); ?></p>
-							<p><?php the_excerpt(); ?></p>
-						</a>
-					</article>
-			<?php
-
-				}
-				wp_reset_postdata();
-			}
-			?>
-		</div>
-	</section>
-
-</main><!-- #main -->
-
-<?php
-get_sidebar();
-get_footer();
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>

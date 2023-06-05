@@ -31,7 +31,6 @@ while ($query->have_posts()) :
                 echo $excerpt;
             }
             ?>
-            <br>
             <a class="read-more-link" href="<?php the_permalink(); ?>">Read More</a>
         </div>
         <div class="student-image">

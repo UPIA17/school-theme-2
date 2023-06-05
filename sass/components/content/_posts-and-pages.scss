@@ -32,22 +32,57 @@
 	width: 120%;
 	padding: 1rem;
 }
+
+/*home page styling*/
+.recent-blog-posts {
+	left: 10%;
+	width: 80%;
+	@media(min-width: 37.5em) {
+		left: 25%;
+		width: 50%;
+	}
+}
 /*student list page specific styles*/
+
+.student {
+	position: relative;
+	left: 10%;
+	width: 80%;
+	@media(min-width: 37.5em) {
+		left: 25%;
+		width: 50%;
+	}
+	height: auto;
+	margin-bottom: 3rem;
+}
 .student-image {
 	position: relative;
-	left: 25%;
-	width: 50%;
 	height: auto;
 }
 .student-image img {
 	border-radius: 30px;
 }
-.student-excerpt a{
+.student-excerpt {
 	position: relative;
-	left: 25%;
-	width: 50%;
+	height: auto;
+	margin-bottom: 3rem;
+}
+.student-excerpt a{
 	height: auto;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
-	padding: 3rem;
+	color: white;
+	background-color: #21759b;
+}
+/*home page wide and full alignment*/
+.wp-block[data-align="wide"] {
+    /* Add your styles for Wide alignment */
+	width: 60%;
+	left: 20%;
+}
+
+.wp-block[data-align="full"] {
+    /* Add your styles for Full alignment */
+	width: 80%;
+	left: 10%;
 }

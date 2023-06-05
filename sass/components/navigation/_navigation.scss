@@ -7,6 +7,7 @@
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
+		text-align: center;
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -72,7 +73,13 @@
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
+	width: 100%;
 	display: block;
+	background-color: bisque;
+	li {
+		padding-bottom: 0.5rem;
+		padding-top: 0.5rem;
+	}
 }
 
 @media screen and (min-width: 37.5em) {
@@ -83,9 +90,24 @@
 
 	.main-navigation ul {
 		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		width: 100%;
+	}
+	.main-navigation ul li {
+		font-weight: bold;
+		width:33%;
+		height: 4rem;
+		a {
+			padding-top:1rem;
+			width:100%;
+			height: 100%;
+		}
+		a:hover, a:focus {
+			background-color: #f1f1f1;
+		}
 	}
 }
-
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
@@ -105,5 +127,23 @@
 	.nav-next {
 		text-align: end;
 		flex: 1 0 50%;
+	}
+}
+/*footer nav*/
+.footer-navigation-menu {
+	left: 0%;
+	bottom: -10%;
+	display: flex;
+	flex-direction: row;
+	li {
+		font-weight: bold;
+		width:33%;
+		height: 4rem;
+		list-style: none;
+		a {
+			padding-top:1rem;
+			width:100%;
+			height: 100%;
+		}
 	}
 }
