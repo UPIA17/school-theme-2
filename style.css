@@ -458,7 +458,8 @@ big {
 /* Elements
 --------------------------------------------- */
 body {
-	background: #fff;
+	background: #feffbe;
+	padding: 4rem;
 }
 
 hr {
@@ -736,6 +737,38 @@ textarea {
 	text-decoration: none;
 }
 
+.site-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: white;
+	text-align: center;
+	width: 120%;
+	padding: 1rem;
+}
+
+/*student list page specific styles*/
+.student-image {
+	position: relative;
+	left: 25%;
+	width: 50%;
+	height: auto;
+}
+
+.student-image img {
+	border-radius: 30px;
+}
+
+.student-excerpt a {
+	position: relative;
+	left: 25%;
+	width: 50%;
+	height: auto;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding: 3rem;
+}
+
 /* Comments
 --------------------------------------------- */
 .comment-content a {
@@ -769,6 +802,23 @@ textarea {
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
 	display: inline-block;
+}
+
+.featured-image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 300px;
+	max-width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.featured-image img {
+	width: auto;
+	height: 100%;
+	-o-object-fit: cover;
+	   object-fit: cover;
 }
 
 /* Captions
@@ -876,7 +926,7 @@ textarea {
 	word-wrap: normal !important;
 }
 .screen-reader-text:focus {
-	background-color: #f1f1f1;
+	background-color: #feffa9;
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;

@@ -1,25 +1,34 @@
 <?php
-/*
- * Template Name: Student Page
- * Template Post Type: page
- */
-
 get_header();
 
 while (have_posts()) :
     the_post();
     ?>
+    <h2><?php the_title(); ?></h2>
+
+    <!-- Output the featured image -->
+    <div class="featured-image">
+        <?php the_post_thumbnail(); ?>
+    </div>
+    <?php if (get_field('biography')) : ?>
+    <p><?php the_field('biography'); ?></p>
+    <?php endif; ?>
 
     <!-- Output the page content -->
     <div class="entry-content">
         <?php the_content(); ?>
     </div>
 
-    <!-- Output the student's name field value -->
-    <h2><?php echo esc_html(get_field('name')); ?></h2>
-
-    <!-- Output the student's biography field value -->
-    <p><?php echo esc_html(get_field('biography')); ?></p>
+    <!-- Output the portfolio URL field -->
+    <?php
+    $portfolio_url = get_field('portfolio_url');
+    if (!empty($portfolio_url) && is_array($portfolio_url)) :
+        $portfolio_url = $portfolio_url['url'];
+        ?>
+        <div class="portfolio-url">
+            <a href="<?php echo esc_url($portfolio_url); ?>" target="_blank">Portfolio</a>
+        </div>
+    <?php endif; ?>
 
 <?php endwhile;
 

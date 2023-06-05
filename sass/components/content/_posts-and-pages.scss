@@ -23,3 +23,31 @@
 	margin: 0 0 1.5em;
 	text-decoration: none;
 }
+.site-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: white;
+	text-align: center;
+	width: 120%;
+	padding: 1rem;
+}
+/*student list page specific styles*/
+.student-image {
+	position: relative;
+	left: 25%;
+	width: 50%;
+	height: auto;
+}
+.student-image img {
+	border-radius: 30px;
+}
+.student-excerpt a{
+	position: relative;
+	left: 25%;
+	width: 50%;
+	height: auto;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding: 3rem;
+}
